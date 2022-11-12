@@ -20,8 +20,8 @@ public class Gallery {
     public String description;
     public String artwork_cid;
 
-    // @OneToMany(mappedBy = "gallery")
-    // public GalleryPhoto[] photos;
+    @OneToMany(mappedBy = "gallery")
+    public GalleryPhoto[] photos;
 
     public Gallery() {
     }

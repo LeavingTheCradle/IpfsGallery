@@ -71,7 +71,9 @@ public class MediaRoutes extends RouteUtils {
             URI url = ex.getRequestURI();
             String[] segments = url.getPath().split("/");
             String cid = segments[segments.length - 1];
-            Logger.info(cid);
+            Logger.info(segments[0]);
+            Logger.info(segments[1]);
+
             String filetype;
             File filebuffer = new File("thumb/" + cid);
             if (!filebuffer.exists()) {

@@ -6,8 +6,7 @@
 
 	onMount(async () => {
 		const res = await axios.get('https://finalspaceapi.com/api/v0/character/?limit=2');
-		photos = await res.data.json();
-		console.log(res);
+		photos = await res.data;
 	});
 </script>
 
@@ -16,4 +15,6 @@
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-<div class="text-column" />
+<div class="text-column">
+	<a href="/gallery/post">Post</a>
+</div>

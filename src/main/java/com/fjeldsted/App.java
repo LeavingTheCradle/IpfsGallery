@@ -21,6 +21,7 @@ import io.ipfs.multiaddr.MultiAddress;
 
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
+import org.tinylog.Logger;
 
 import com.fjeldsted.Http.Routes.*;
 import com.fjeldsted.util.*;
@@ -34,26 +35,31 @@ public class App {
     }
 
     public static void main(String[] args) throws IOException {
-        Server server = new Server();
-        int port = 18000;
-        server.Listen(18000);
+        try {
+            Server server = new Server();
+            int port = 18000;
+            server.Listen(18000);
 
-        /*
-         * new HttpStringWorker("/cnt", ex -> "Hello world - " +
-         * numCalls.incrementAndGet()),
-         * new HttpStringWorker("/test", ex -> {
-         * return "Waited 1s";
-         * }),
-         * new HttpStringWorker("/wait10", ex -> {
-         * SystemUtils.sleep(10_000);
-         * return "Waited 10s";
-         * }),
-         * new HttpStringWorker("/wait60", ex -> {
-         * SystemUtils.sleep(60_000);
-         * return "Waited 60s";
-         * }));
-         */
-        System.out.println("Waiting on http://localhost:" + port);
-        System.out.println("Fibers available: " + ActorUtils.areFibersAvailable());
+            /*
+             * new HttpStringWorker("/cnt", ex -> "Hello world - " +
+             * numCalls.incrementAndGet()),
+             * new HttpStringWorker("/test", ex -> {
+             * return "Waited 1s";
+             * }),
+             * new HttpStringWorker("/wait10", ex -> {
+             * SystemUtils.sleep(10_000);
+             * return "Waited 10s";
+             * }),
+             * new HttpStringWorker("/wait60", ex -> {
+             * SystemUtils.sleep(60_000);
+             * return "Waited 60s";
+             * }));
+             */
+            Logger.info("Waiting on http://localhost:" + port);
+            Logger.info("Fibers available: " + ActorUtils.areFibersAvailable());
+        } catch (RuntimeException e) {
+            Logger.error(e);
+            System.exit(0);
+        }
     }
 }
