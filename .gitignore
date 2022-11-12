@@ -1,0 +1,5 @@
+pillaged/
+target/*
+html/*
+thumb/*
+src/main/resources/hibernate.cfg.xml
