@@ -2,4 +2,6 @@ pillaged/
 target/*
 html/*
 thumb/*
+!thumb/.gitkeep
+!target/.gitkeep
 src/main/resources/hibernate.cfg.xml
